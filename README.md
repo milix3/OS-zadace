@@ -1,23 +1,5 @@
-Neka program simulira neki dugotrajni posao (slično servisima) koji koristi dvije datoteke: 
-u jednu dodaje do sada izračunate vrijednosti (npr. kvadrati slijednih brojeva), a u drugu 
-podatak do kuda je stigao. Npr. u obrada.txt zapisuje 1 4 9 … (svaki broj u novi red) a u 
-status.txt informaciju o tome gdje je stao ili kako nastaviti. Npr. ako je zadnji broj u 
-obrada.txt 100 u status.txt treba zapisati 10 tako da u idućem pokretanju može nastaviti 
-raditi i dodavati brojeve.
+Let the program simulate some long-running job (similar to services) that uses two files: add the values ​​calculated so far (e.g. squares of sequential numbers) to one, and the information about where it has reached to the other. For example, in obrada.txt it writes 1 4 9 … (each number on a new line) and in status.txt it writes information about where it left off or how to continue. For example, if the last number in obrada.txt is 100, 10 should be written in status.txt so that it can continue working and adding numbers on the next run.
 
- Međusobno isključivanje ostvariti za dva procesa/dretve
- međusobnim isključivanjem po Dekkerovom algoritmu.
+Mutual exclusion is achieved for two processes/threads by mutual exclusion according to Dekker's algorithm.
 
-  Ostvariti program koji simulira tijek rezervacije stolova u nekom
- restoranu. Program na početku treba stvoriti određeni broj dretvi koji
- se zadaje u naredbenom retku. Svaka dretva/proces nakon isteka
- jedne sekunde provjerava ima li slobodnih stolova te slučajno
- odabire jedan od njih. Nakon odabira dretva ulazi u kritični odsječak
- te ponovo provjerava je li odabrani stol slobodan. Ako jest, označava
- stol zauzetim i izlazi iz kritičnog odsječka. U oba slučaja, nakon
- obavljene operacije ispisuje trenutno stanje svih stolova te podatke o
- obavljenoj rezervaciji. Prilikom ispisa za svaki stol mora biti vidljivo
- je li slobodan ili broj dretve/procesa koja je taj stol rezervirala. Broj
- stolova se također zadaje u naredbenom retku. Svaka dretva
- ponavlja isti postupak sve dok više nema slobodnih stolova.
- Program završava kada sve dretve završe
+Create a program that simulates the process of reserving tables in a restaurant. At the beginning, the program should create a certain number of threads that are specified on the command line. After one second, each thread/process checks whether there are free tables and randomly selects one of them. After selecting a thread, it enters the critical section and checks again whether the selected table is free. If it is, it marks the table as busy and exits the critical section. In both cases, after the operation is completed, it prints the current state of all tables and information about the reservation made. When printing, it must be visible for each table whether it is free or the number of the thread/process that reserved the table. The number of tables is also specified on the command line. Each thread repeats the same procedure until there are no more free tables. The program ends when all threads have finished
