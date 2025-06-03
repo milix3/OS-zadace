@@ -1,10 +1,12 @@
 1) Let the program simulate some long-running job (similar to services) that uses two files: add the values ​​calculated so far (e.g. squares of sequential numbers) to one, and the information about where it has reached to the other. For example, in obrada.txt it writes 1 4 9 … (each number on a new line) and in status.txt it writes information about where it left off or how to continue. For example, if the last number in obrada.txt is 100, 10 should be written in status.txt so that it can continue working and adding numbers on the next run.
+kill -10 pid (sends status)
+kill -15 pid (terminates program without storing status)
+kill -2 pid or ctrl/c (terminates program with storing status)
+3) Mutual exclusion is achieved for two processes/threads by mutual exclusion according to Dekker's algorithm.
 
-2) Mutual exclusion is achieved for two processes/threads by mutual exclusion according to Dekker's algorithm.
+4) Create a program that simulates the process of reserving tables in a restaurant. At the beginning, the program should create a certain number of threads that are specified on the command line. After one second, each thread/process checks whether there are free tables and randomly selects one of them. After selecting a thread, it enters the critical section and checks again whether the selected table is free. If it is, it marks the table as busy and exits the critical section. In both cases, after the operation is completed, it prints the current state of all tables and information about the reservation made. When printing, it must be visible for each table whether it is free or the number of the thread/process that reserved the table. The number of tables is also specified on the command line. Each thread repeats the same procedure until there are no more free tables. The program ends when all threads have finished
 
-3) Create a program that simulates the process of reserving tables in a restaurant. At the beginning, the program should create a certain number of threads that are specified on the command line. After one second, each thread/process checks whether there are free tables and randomly selects one of them. After selecting a thread, it enters the critical section and checks again whether the selected table is free. If it is, it marks the table as busy and exits the critical section. In both cases, after the operation is completed, it prints the current state of all tables and information about the reservation made. When printing, it must be visible for each table whether it is free or the number of the thread/process that reserved the table. The number of tables is also specified on the command line. Each thread repeats the same procedure until there are no more free tables. The program ends when all threads have finished
-
-4)  models the operation of the carousel using processes and general (named) semaphores
+5)  models the operation of the carousel using processes and general (named) semaphores
     hree semaphores are used:
      -one for the number of free seats on the carousel (seats, initially n)
      -one for signaling the start of the ride (start_ride)
@@ -15,7 +17,7 @@
     added a signal handler for sigint so that all processes can end properly
     the main process finally deletes the semaphores (sem_unlink) so that they do not remain in the system
 
-5)  solution of the five philosophers problem using a monitor each philosopher is a thread and in an infinite loop thinks and eats
+6)  solution of the five philosophers problem using a monitor each philosopher is a thread and in an infinite loop thinks and eats
  I use one mutex semaphore for the critical section
  and an array of semaphores sem[i] for each philosopher separately (as condition variables)
  I store the philosopher's state in an array state[]:
